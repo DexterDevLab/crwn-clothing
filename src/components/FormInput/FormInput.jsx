@@ -6,7 +6,7 @@ const FormInput = ({ label, ...otherProps }) => {
     <div className='group'>
       <input className='form-input' {...otherProps} />
       <label
-        htmlFor={otherProps.name}
+        htmlFor={otherProps.id}
         className={`${
           otherProps.value.length ? 'shrink' : ''
         } form-input-label`}

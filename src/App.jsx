@@ -1,8 +1,8 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Authentication from './routes/Authentication/Authentication';
 import Error404 from './routes/Error404/Error404';
 import Home from './routes/Home/Home';
 import Navigation from './routes/Navigation/Navigation';
-import SignIn from './routes/SignIn/SignIn';
 
 const Shop = () => {
   return <h1>This is the shop page!</h1>;
@@ -23,8 +23,8 @@ const router = createBrowserRouter([
         element: <Shop />,
       },
       {
-        path: '/sign-in',
-        element: <SignIn />,
+        path: '/auth',
+        element: <Authentication />,
       },
     ],
   },
