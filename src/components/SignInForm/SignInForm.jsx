@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import {
-  createUserDocument,
+  signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
-  singInAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase';
 import Button from '../Button/Button';
 import FormInput from '../FormInput/FormInput';
@@ -13,19 +12,14 @@ const SignInForm = () => {
   const { email, password } = formFields;
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocument(user);
+    await signInWithGooglePopup();
   };
 
   const handleSubmit = async e => {
     e.preventDefault();
 
     try {
-      const response = await singInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-      console.log(response);
+      await signInAuthUserWithEmailAndPassword(email, password);
       setFormFields({ email: '', password: '' });
     } catch (error) {
       if (error.code === 'auth/invalid-credential') {
