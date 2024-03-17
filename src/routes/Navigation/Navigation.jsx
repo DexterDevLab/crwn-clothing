@@ -1,12 +1,16 @@
 import { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import logo from '../../assets/crown.svg';
+import MiniCartDropdown from '../../components/MiniCart/MiniCartDropdown';
+import MiniCartIcon from '../../components/MiniCart/MiniCartIcon';
+import { CartContext } from '../../contexts/CartContext';
 import { UserContext } from '../../contexts/UserContext';
 import { signOutUser } from '../../utils/firebase/firebase';
 import './Navigation.scss';
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartContext);
 
   const handleLogout = async e => {
     e.preventDefault();
@@ -38,7 +42,9 @@ const Navigation = () => {
               Sign In
             </Link>
           )}
+          <MiniCartIcon />
         </div>
+        {isCartOpen && <MiniCartDropdown />}
       </div>
       <Outlet />
     </>
