@@ -4,7 +4,11 @@ import { CartContext } from '../../contexts/CartContext';
 import './MiniCartIcon.scss';
 
 const MiniCartIcon = () => {
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, cartItems } = useContext(CartContext);
+
+  const totalItems = cartItems.reduce((total, item) => {
+    return total + item.quantity;
+  }, 0);
 
   return (
     <div
@@ -12,7 +16,7 @@ const MiniCartIcon = () => {
       onClick={() => setIsCartOpen(!isCartOpen)}
     >
       <img src={cartIcon} alt='cart icon' className='shopping-icon' />
-      <span className='item-count'>20</span>
+      <span className='item-count'>{totalItems}</span>
     </div>
   );
 };
