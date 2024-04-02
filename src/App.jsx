@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Authentication from './routes/Authentication/Authentication';
+import Checkout from './routes/Checkout/Checkout';
 import Error404 from './routes/Error404/Error404';
 import Home from './routes/Home/Home';
 import Navigation from './routes/Navigation/Navigation';
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: '/auth',
         element: <Authentication />,
+      },
+      {
+        path: '/checkout',
+        element: <Checkout />,
       },
     ],
   },

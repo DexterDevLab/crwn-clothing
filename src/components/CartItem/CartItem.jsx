@@ -1,8 +1,12 @@
 /* eslint react/prop-types: 0 */
+import { useContext } from 'react';
 import trash from '../../assets/trash.svg';
+import { CartContext } from '../../contexts/CartContext';
 import './CartItem.scss';
 
 const CartItem = ({ product }) => {
+  const { clearItemInCart } = useContext(CartContext);
+
   const { name, imageUrl, id, price, quantity } = product;
   return (
     <div className='cart-item-container'>
@@ -18,6 +22,7 @@ const CartItem = ({ product }) => {
         src={trash}
         alt='trash icon'
         title='delete item'
+        onClick={() => clearItemInCart(id)}
       />
     </div>
   );
