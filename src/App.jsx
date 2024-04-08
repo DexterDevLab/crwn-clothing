@@ -17,15 +17,15 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/shop',
+        path: 'shop/*',
         element: <Shop />,
       },
       {
-        path: '/auth',
+        path: 'auth',
         element: <Authentication />,
       },
       {
-        path: '/checkout',
+        path: 'checkout',
         element: <Checkout />,
       },
     ],
